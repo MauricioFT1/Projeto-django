@@ -1,0 +1,163 @@
+{% load static %}
+<html lang=pt-br>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="">
+
+
+
+</head>
+
+<body>
+    <div class="fixed-bottom">
+        <div class="float-right">2019 © MauTrick's Corp.......................</div>
+    </div>
+    {% block tudo %}
+    {% endblock %}
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark ">
+        <a class="navbar-brand" href="{% url 'principal' %}">
+            <img src="https://svgsilh.com/svg/25775.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Futebol
+        </a>
+        <!-- <a class="navbar-brand" href="{% url 'post_list' %}" title="Lista de post">
+            <img src="{% static 'img/lista.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+            Lista
+        </a>
+        <a class="navbar-brand" href="{% url 'post_new' %}" title="Adicionar post">
+            <img src="{% static 'img/newpost.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+            Adicionar post
+        </a>
+        <a class="navbar-brand" href="{% url 'post_draft_list' %}">
+            <img src="{% static 'img/draft.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+            Rascunho
+        </a> -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <!-- <li class="nav-item">
+                    <a class="navbar-brand" href="{% url 'lista' %}">
+                        Usuarios
+                    </a>
+                </li> -->
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Posts!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'post_list' %}" title="Lista de post">
+                            <img src="{% static 'img/lista.png' %}" width="30" height="30"
+                                class="d-inline-block align-top" alt="">
+                            Lista
+                        </a>
+                        <hr>
+                        <a class="dropdown-item" href="{% url 'post_new' %}" title="Adicionar post">
+                            <img src="{% static 'img/newpost.png' %}" width="30" height="30"
+                                class="d-inline-block align-top" alt="">
+                            Adicionar
+                        </a>
+                        <hr>
+                        <a class="dropdown-item" href="{% url 'post_draft_list' %}" title="Rascunho">
+                            <img src="{% static 'img/draft.png' %}" width="30" height="30"
+                                class="d-inline-block align-top" alt="">
+                            Rascunho
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Campeonatos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'brasileirao2018' %}">Brasileirão 2018</a>
+                        <a class="dropdown-item" href="{% url 'brasileirao2008' %}">Brasileirão 2008</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'copadomundo' %}">Copa do Mundo</a>
+                    </div>
+                </li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mais!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'origem' %}">Origem</a>
+                        <a class="dropdown-item" href="{% url 'regulamento' %}">Regulamento</a>
+                    </div>
+                </li>
+                
+
+
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+
+            </form>
+
+
+            <!-- Logar -->
+            {% if user.is_authenticated %}
+            <div class="nav-item dropdown">
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="top-menu"><img src="{% static 'img/sair.png' %}" title="Sair"
+                            height="48" width="48"></a>
+                </li>
+            </div>
+
+            {% else %}
+            <button class="btn btn-dark"><a class="navbar-brand" href="{% url 'login' %}">Entrar</a></button>
+            <a href="{ url('register') }"></a>
+
+            {% endif %}
+            <!-- Registrar-se -->
+
+
+
+
+    </nav>
+
+
+
+
+
+
+
+    {% block body %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+
+
+
+    <!--rodape-->
+    <div class="rodape">
+        Site desenvolvido por Mauricio de Freitas Tebechrani
+    </div>
+
+
+
+    </div>
+    <script src="{{ url_for('static', filename="js.bootstrap.min.js")}"></script>
+</body>
+<footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</footer>
+
+</html>

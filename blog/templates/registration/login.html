@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %} {% block content %} {% if form.errors %}
+<p>Seu usuario ou sua senha estão incorreto, tente novamente!</p>
+{% endif %}
+<div class="login">
+    <form method="post" action="{% url 'login' %}">
+        <div class="card text-black bg-dark mb-3" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <br><div class="logintxt"> Faça seu login! </div></li>
+                <li class="list-group-item">
+                    {% csrf_token %}    
+                    <div class="logintxt">
+                        {{ form.username.label_tag }} <br></div>
+                    {{ form.username }} <br>
+                    <br>
+                    <div class="logintxt">
+                        {{ form.password.label_tag }}</div>
+                    {{ form.password }}
+                    <br>
+                </li>
+                <li class="list-group-item">
+                    <button type="submit" value="login" class="btn btn-outline-dark">Login</button>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+{% endblock %}
