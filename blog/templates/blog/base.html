@@ -16,7 +16,8 @@
 <body>
     <div class="fixed-bottom">
         <div class="float-right">2019 © MauTrick's Corp.......................</div>
-        <div class="back-to-top"><a href="{% url 'regulamento' %}"><img src="{% static 'img/top.png' %}" width="40" height="40" alt=""></a></div>
+        <div class="back-to-top"><a href="{% url 'regulamento' %}"><img src="{% static 'img/top.png' %}" width="40"
+                    height="40" alt=""></a></div>
     </div>
     {% block tudo %}
     {% endblock %}
@@ -25,26 +26,8 @@
             <img src="https://svgsilh.com/svg/25775.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Futebol
         </a>
-        <!-- <a class="navbar-brand" href="{% url 'post_list' %}" title="Lista de post">
-            <img src="{% static 'img/lista.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-            Lista
-        </a>
-        <a class="navbar-brand" href="{% url 'post_new' %}" title="Adicionar post">
-            <img src="{% static 'img/newpost.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-            Adicionar post
-        </a>
-        <a class="navbar-brand" href="{% url 'post_draft_list' %}">
-            <img src="{% static 'img/draft.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-            Rascunho
-        </a> -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
-                <!-- <li class="nav-item">
-                    <a class="navbar-brand" href="{% url 'lista' %}">
-                        Usuarios
-                    </a>
-                </li> -->
                 {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -95,7 +78,7 @@
                         <a class="dropdown-item" href="{% url 'regulamento' %}">Regulamento</a>
                     </div>
                 </li>
-                
+
 
 
 
@@ -147,7 +130,7 @@
 
 
     </div>
-    <script src="{{ url_for('static', filename="js.bootstrap.min.js")}"></script>
+
 </body>
 <footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
