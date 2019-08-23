@@ -109,7 +109,7 @@
                     <div class="card card-body">
                         Esse site foi desenvolvido pelo aluno Mauricio de Freitas Tebechrani da graduação de Bacharelado
                         em Sistemas de informações e tem como principal função o quesito educacional e experimental,
-                        desenvolvido unicamente e exclusivamente para a aula de Desenvolvimento WEB I, utilizando Flask
+                        desenvolvido unicamente e exclusivamente para a aula de Desenvolvimento WEB II, utilizando Django
                         para o desenvolvimento juntamente com a linguagem python, sendo feito em HTML com o auxilio da
                         framework de bootstrap.
                     </div>
@@ -120,9 +120,9 @@
                     <div class="card card-body" font>
                         <strong>Principal:</Strong> Informações relacionadas ao tema proposto assim como links externos
                         para sites relacionados assim como imagens e como em todos as outras paginas um cabeçalho e um
-                        rodapé padrão! <strong><a href="{ url('origem')}" target="_blank">Origem:</a></strong>Aqui
+                        rodapé padrão! <strong><a href="{% url 'origem' %}" target="_blank">Origem:</a></strong>Aqui
                         sera
-                        mostrado um pouco das origem do futebol! <strong><a href="{ url('regulamento')}"
+                        mostrado um pouco das origem do futebol! <strong><a href="{% url 'regulamento' %}"
                                 target="_blank">Regulamento:</a></strong>Aqui sera mostrado todos os regulamentos
                         detalhados!
                     </div>
