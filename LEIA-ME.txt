@@ -1,0 +1,7 @@
+# Projeto-django
+
+Segue o projeto feito em Django!
+
+Essa é a conta admin!!
+Usuario: Admin
+Senha: Admin
